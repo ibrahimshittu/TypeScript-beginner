@@ -83,9 +83,6 @@ interface Resources<T> {
     data: T;
 }
 
-
-
-
 const docThree: Resources<string> = {
     uid: 2,
     resourceName: 'hello',
