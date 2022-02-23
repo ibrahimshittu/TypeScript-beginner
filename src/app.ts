@@ -2,11 +2,11 @@ import { Invoice } from "./classes/invoice.js";
 import { Payments } from "./classes/payments.js";
 import { HasFormatter } from "./interfaces/HasFormatter.js";
 
-let docOne: HasFormatter;
-let docTwo: HasFormatter;
+// let docOne: HasFormatter;
+// let docTwo: HasFormatter;
 
-docOne = new Invoice("yoshi", "web work", 240)
-docTwo = new Payments("yoshi", "wen work", 240)
+// docOne = new Invoice("yoshi", "web work", 240)
+// docTwo = new Payments("yoshi", "wen work", 240)
 
 interface isPerson {
     name: string,
@@ -28,7 +28,7 @@ let invoices : Invoice[] = [];
 
 
 invoices.push(invOne)
-console.log(invoices)
+//console.log(invoices)
 
 
 
@@ -43,11 +43,16 @@ const amount = document.querySelector('#amount') as HTMLInputElement
 form.addEventListener('submit', (e: Event)=> {
     e.preventDefault()
 
+    let doc: HasFormatter;
+
+    if (type.value === "invoice") {
+       doc = new  Invoice(tofrom.value, details.value, amount.valueAsNumber)
+    } else {
+       doc = new  Payments(tofrom.value, details.value, amount.valueAsNumber)
+    }
+
     console.log(
-        type.value,
-        tofrom.value,
-        details.value,
-        amount.valueAsNumber,
+        doc
     )
 })
 
