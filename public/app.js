@@ -21,12 +21,14 @@ const ul = document.querySelector('ul');
 const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    let values;
+    values = [tofrom.value, details.value, amount.valueAsNumber];
     let doc;
     if (type.value === "invoice") {
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
     }
     else {
-        doc = new Payments(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Payments(...values);
     }
     console.log(doc);
     list.render(doc, type.value, "end");
@@ -49,3 +51,4 @@ const docThree = {
     resourceType: ResourceType.BOOK,
     data: 'string'
 };
+let tup = ['arr', 23, false];
