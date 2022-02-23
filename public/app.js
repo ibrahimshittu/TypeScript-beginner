@@ -37,8 +37,15 @@ const addUUID = (obj) => {
 };
 let docOne = addUUID({ name: "yoshi", age: 46 });
 console.log(docOne.name);
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["PERSON"] = 2] = "PERSON";
+})(ResourceType || (ResourceType = {}));
 const docThree = {
     uid: 2,
     resourceName: 'hello',
+    resourceType: ResourceType.BOOK,
     data: 'string'
 };
