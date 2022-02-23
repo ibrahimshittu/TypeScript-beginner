@@ -31,3 +31,14 @@ form.addEventListener('submit', (e) => {
     console.log(doc);
     list.render(doc, type.value, "end");
 });
+const addUUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let docOne = addUUID({ name: "yoshi", age: 46 });
+console.log(docOne.name);
+const docThree = {
+    uid: 2,
+    resourceName: 'hello',
+    data: 'string'
+};

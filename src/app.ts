@@ -63,4 +63,24 @@ form.addEventListener('submit', (e: Event)=> {
 })
 
 
+const addUUID = <T extends object | {name: string}>(obj: T) => {
+    let uid = Math.floor(Math.random()*100)
+    return {...obj, uid}
+}
 
+let docOne = addUUID({name: "yoshi", age: 46})
+
+console.log(docOne.name)
+
+
+interface Resources<T> {
+    uid: number,
+    resourceName: string, 
+    data: T;
+}
+
+const docThree: Resources<string> = {
+    uid: 2,
+    resourceName: 'hello',
+    data: 'string'
+}
